@@ -68,9 +68,11 @@ else
     RESULT2=$(FILE2) does not exist.
 endif
 
-PREREQ_EXECUTABLES = ld swig
-K := $(foreach exec,$(PREREQ_EXECUTABLES),\
-        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH")))
+# AC 2020 07 24 removed this test as "make action" from SNAP_ROOT will fail if we are not in python configuration
+# Need to check we have ACTION_ROOT=hls_helloworld_python
+# PREREQ_EXECUTABLES = ld swig
+# K := $(foreach exec,$(PREREQ_EXECUTABLES),\
+#        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH")))
 
 # Steps to wrap wih swig:
 #
